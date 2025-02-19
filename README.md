@@ -10,6 +10,8 @@ A modern, responsive e-commerce application built with React, TypeScript, and Ta
 - 🖼️ Product modal with detailed information
 - ⚡ Fast and efficient API integration
 - 🎨 Clean and modern UI design
+- 🔄 Redux state management
+- 🎯 Type-safe development with TypeScript
 
 ## Installation
 
@@ -35,69 +37,79 @@ npm run dev
 
 The application will be available at \`http://localhost:5173\`
 
-## Functionality Checklist
+## State Management Architecture
 
-✅ **Product Loading**
-- Loads all products by default on initial page load
-- Displays loading spinner while fetching data
-- Handles API errors gracefully
+The application uses Redux Toolkit for state management, organized into three main slices:
 
-✅ **Category Search**
-- Real-time category filtering
-- Shows "No categories found" message for non-existent categories
-- Easy reset to all products
-- Maintains clean state between category switches
+### Products Slice
+- Manages product data and category filtering
+- Handles async API calls using createAsyncThunk
+- Tracks loading states and errors
 
-✅ **Product Modal**
-- Displays detailed product information
-- High-quality product images
-- Shows price, description, and ratings
-- Smooth open/close transitions
+### Cart Slice
+- Manages shopping cart state
+- Tracks cart items and total count
+- Handles add to cart operations
 
-✅ **Shopping Cart**
-- Increments count when adding products
-- Persistent cart count across category changes
-- Visual feedback when adding items
+### UI Slice
+- Manages UI-related state
+- Controls modal visibility
+- Handles search term and selected product
 
-✅ **State Management**
-- Clean implementation using React hooks
-- Separate concerns in different components
-- Efficient data flow between components
+## Design Decisions
 
-## Technical Details
+1. **Redux Implementation**
+   - Used Redux Toolkit for simplified Redux setup
+   - Implemented type-safe actions and reducers
+   - Separated concerns into logical slices
+   - Created custom hooks for type-safe Redux usage
 
-- Built with React 18 and TypeScript
-- Styled using Tailwind CSS
-- Uses Axios for API calls
-- Implements modern React patterns and hooks
-- Follows accessibility best practices
+2. **Type Safety**
+   - Comprehensive TypeScript integration
+   - Type-safe Redux state and actions
+   - Custom hooks for type-safe Redux usage
+
+3. **Performance Optimizations**
+   - Efficient state updates
+   - Memoized selectors
+   - Optimized re-renders
+
+4. **Code Organization**
+   - Feature-based folder structure
+   - Separate slices for different concerns
+   - Reusable custom hooks
+   - Clean and maintainable component structure
+
+## Technical Stack
+
+- React 19
+- TypeScript
+- Redux Toolkit
+- Tailwind CSS
+- Axios
+- Vite
 
 ## Future Improvements
 
-Given more time, these areas could be enhanced:
+1. **State Management Enhancements**
+   - Implement Redux persistence
+   - Add middleware for analytics
+   - Optimize state selectors
 
-1. **Cart Persistence**
-   - Implement local storage for cart items
-   - Add a full cart page with item management
+2. **Cart Features**
+   - Add quantity management
+   - Implement cart persistence
+   - Add checkout flow
 
-2. **Search Functionality**
-   - Add product name search
-   - Implement advanced filtering options
+3. **Performance**
+   - Implement Redux query caching
+   - Add request debouncing
+   - Optimize bundle size
 
-3. **Performance Optimization**
-   - Implement infinite scrolling for products
-   - Add image lazy loading
-   - Implement caching for API responses
-
-4. **User Experience**
-   - Add product sorting options
-   - Implement wishlist functionality
-   - Add product reviews section
-
-5. **Testing**
-   - Add unit tests for components
-   - Implement integration tests
-   - Add end-to-end testing
+4. **Testing**
+   - Add Redux state tests
+   - Implement action creators tests
+   - Add selector tests
 
 ## Contributing
 
